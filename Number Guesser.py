@@ -30,12 +30,17 @@ def check_guess(user_input, r_number, health):
         guess = int(user_input)
     except ValueError:
         print("Please enter a number.")
+        time.sleep(0.8)
         return False, health
 
     if guess == r_number:
         print("Congratulations, you won!")
         time.sleep(1)
         return True, health
+    elif guess < 1 or guess > 10:
+        print("Please enter a number between 1 and 10.")
+        time.sleep(0.8)
+        return False, health
     else:
         if guess > r_number:
             print("Incorrect...\nToo high!")
@@ -84,5 +89,3 @@ while True:
     main()
     if not play_again():
         break
-
-# Just cleaned some things up
